@@ -1,0 +1,30 @@
+<table class="index" id='listing_properties' data-hook>
+  <colgroup>
+    <col style="width: 30%">
+    <col style="width: 30%">
+    <col style="width: 30%">
+    <col style="width: 10%">
+  </colgroup>
+  <thead>
+  <tr data-hook="listing_properties_header">
+    <th><%= Spree.t(:name) %></th>
+    <th><%= Spree.t(:presentation) %></th>
+    <th><%= Spree.t(:type) %></th>
+    <th class="actions"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @properties.each do |property| %>
+    <tr id="<%= spree_dom_id property %>" data-hook="listing_properties_row" class="<%= cycle('odd', 'even')%>">
+      <td><%= property.name %></td>
+      <td><%= property.presentation %></td>
+      <td><%= property.property_type_name %></td>
+      <td class="actions">
+        <%= link_to_edit(property, :no_text => true) %>
+        <%= link_to_delete(property, :no_text => true) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

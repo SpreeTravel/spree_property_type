@@ -1,0 +1,27 @@
+<div data-hook="admin_property_form" class="align-center row">
+
+  <div class="alpha five columns">
+    <%= f.field_container :name do %>
+      <%= f.label :name, Spree.t(:name) %> <span class="required">*</span><br />
+      <%= f.text_field :name, :class => 'fullwidth' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+  </div>
+  <div class="five columns omega">
+    <%= f.field_container :presentation do %>
+      <%= f.label :presentation, Spree.t(:presentation) %> <span class="required">*</span><br />
+      <%= f.text_field :presentation, :class => 'fullwidth' %>
+      <%= f.error_message_on :presentation %>
+    <% end %>
+  </div>
+  <%# TODO: ver por que esto sale bien pacotilloso en el edit pero no en el new %>
+  <div class="six columns omega">
+    <%= f.field_container :property_type do %>
+      <%= f.label :property_type, t('property_type') %> <br />
+      <%= f.select :property_type_id, Spree::PropertyType.all.collect {|pt| [pt.name, pt.id]},
+                   {:prompt => t(:none)}, :class => "select2 fullwidth" %>
+      <%= f.error_message_on :property_type %>
+    <% end %>
+  </div>
+
+</div>

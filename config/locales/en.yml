@@ -5,3 +5,5 @@ en:
   property_types: "Property Types"
   select: 'Select'
   default: 'Default'
+  property_type: 'Property Type'
+  none: 'None'
