@@ -1,0 +1,45 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:listing_property_types) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <ul class="actions inline-menu">
+    <li>
+      <%= button_link_to Spree.t(:new_property_type), new_object_url, :icon => 'icon-plus', :id => 'admin_new_property_type_link' %>
+    </li>
+  </ul>
+<% end %>
+
+<table class="index" id='listing_property-types' data-hook>
+  <colgroup>
+    <col style="width: 40%" />
+    <col style="width: 45%" />
+    <col style="width: 15%" />
+  </colgroup>
+  <thead>
+  <tr data-hook="tax_header">
+    <th><%= Spree.t(:name) %></th>
+    <th><%= Spree.t(:show) %></th>
+    <th class="actions"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @property_types.each do |property_type|
+    @edit_url = edit_admin_property_type_path(property_type)
+    @delete_url = admin_property_type_path(property_type)
+  %>
+    <tr id="<%= spree_dom_id property_type %>" data-hook="tax_row" class="<%= cycle('odd', 'even')%>">
+      <td><%= property_type.name %></td>
+      <td><%= property_type.show_type %></td>
+      <td class="actions">
+        <%= link_to_edit property_type, :no_text => true %>
+        <%= link_to_delete property_type, :no_text => true %>
+    </tr>
+  <% end %>
+  <% if @property_types.empty? %>
+    <tr data-hook="tax_none"><td colspan="4"><%= Spree.t(:none) %></td></tr>
+  <% end %>
+  </tbody>
+</table>
