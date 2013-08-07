@@ -1,12 +1,28 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:properties) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li id="new_property_link">
+    <%= button_link_to Spree.t(:new_property), new_admin_property_url, { :icon => 'icon-plus', :id => 'new_property_link' } %>
+  </li>
+<% end %>
+
+<%= render :partial => 'spree/admin/shared/product_sub_menu' %>
+
+<div id="new_property"></div>
+
 <table class="index" id='listing_properties' data-hook>
   <colgroup>
-    <col style="width: 30%">
+    <col style="width: 5%">
+    <col style="width: 25%">
     <col style="width: 30%">
     <col style="width: 30%">
     <col style="width: 10%">
   </colgroup>
   <thead>
   <tr data-hook="listing_properties_header">
+    <th><%= Spree.t(:icon) %></th>
     <th><%= Spree.t(:name) %></th>
     <th><%= Spree.t(:presentation) %></th>
     <th><%= Spree.t(:type) %></th>
@@ -16,6 +32,7 @@
   <tbody>
   <% @properties.each do |property| %>
     <tr id="<%= spree_dom_id property %>" data-hook="listing_properties_row" class="<%= cycle('odd', 'even')%>">
+      <td><%= image_tag property.icon(:mini), :size => '24x24', :border => 1 %></td>
       <td><%= property.name %></td>
       <td><%= property.presentation %></td>
       <td><%= property.property_type_name %></td>
@@ -27,4 +44,5 @@
   <% end %>
   </tbody>
 </table>
+
 
