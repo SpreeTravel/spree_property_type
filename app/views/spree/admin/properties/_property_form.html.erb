@@ -26,29 +26,23 @@
   </div>
 
   <div class="alpha twelve columns">
-    <%= f.fields_for [@property.icon] do |ff| %>
       <fieldset data-hook="edit_image">
         <legend align="center"><%= @property.icon.attachment_file_name || Spree.t(:new_image) %></legend>
         <div data-hook="thumbnail" class="field alpha three columns align-center">
-          <%= ff.label Spree.t(:thumbnail) %><br>
+          <%= f.label Spree.t(:thumbnail) %><br>
           <%= image_tag(@property.icon.attachment.url(:small)) %>
         </div>
 
         <div data-hook="admin_property_icon_form_fields">
           <div class="four columns alpha">
             <div data-hook="file" class="field">
-              <%= ff.label Spree.t(:filename) %><br>
-              <%= ff.file_field :attachment %>
+              <%= f.label Spree.t(:filename) %><br>
+              <%= f.file_field :attachment %>
             </div>
-          </div>
-          <div data-hook="alt_text" class="field omega five columns">
-            <%= ff.label Spree.t(:alt_text) %><br>
-            <%= ff.text_area :alt, :rows => 4, :class => 'fullwidth' %>
           </div>
         </div>
 
         <div class="clear"></div>
       </fieldset>
-    <% end %>
   </div>
 </div>

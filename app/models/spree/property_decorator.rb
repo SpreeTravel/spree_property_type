@@ -1,13 +1,13 @@
 module Spree
   Property.class_eval do
     belongs_to :property_type
-    attr_accessible :property_type_id, :property_icon_attributes, :property_icon
-    has_one :property_icon, class_name: 'Spree::PropertyIcon', :as => :viewable
-    accepts_nested_attributes_for :property_icon
-
-    def icon
-      property_icon || Spree::PropertyIcon.new
-    end
+    attr_accessible :property_type_id, :icon
+    has_attached_file :icon,
+                      styles: { mini: '32x32>', normal: '128x128>' },
+                      default_style: :mini,
+                      url: '/spree/taxons/:id/:style/:basename.:extension',
+                      path: ':rails_root/public/spree/taxons/:id/:style/:basename.:extension',
+                      default_url: '/assets/default_taxon.png'
 
     def property_type_name
       property_type.name rescue 'Properties'
