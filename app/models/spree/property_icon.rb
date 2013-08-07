@@ -6,7 +6,7 @@ module Spree
     attr_accessible :alt, :attachment, :position, :viewable_type, :viewable_id
 
     has_attached_file :attachment,
-                      styles: { mini: '24x24>', small: '48x48>', large: '100x100>'},
+                      styles: { mini: '24x24#', small: '48x48#', large: '100x100#'},
                       default_style: :small,
                       url: '/spree/icons/properties/:id/:style_:basename.:extension',
                       path: ':rails_root/public/spree/icons/properties/:id/:style_:basename.:extension',
