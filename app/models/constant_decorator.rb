@@ -11,4 +11,8 @@ Constant.class_eval do
   PROPERTY_SHOW_INDEX_NAME   = 'index_name'
   PROPERTY_SHOW_INDEX_ICON   = 'index_icon'
   PROPERTY_SHOW_INDEX_BOTH   = 'index_both'
+
+  def self.left_properties
+    [PROPERTY_SHOW_LEFT_NORMAL, PROPERTY_SHOW_LEFT_NAME, PROPERTY_SHOW_LEFT_ICON, PROPERTY_SHOW_LEFT_BOTH]
+  end
 end
