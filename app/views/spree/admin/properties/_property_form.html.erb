@@ -7,13 +7,14 @@
       <%= f.error_message_on :name %>
     <% end %>
   </div>
-  <div class="five columns omega">
+  <div class="five columns ">
     <%= f.field_container :presentation do %>
       <%= f.label :presentation, Spree.t(:presentation) %> <span class="required">*</span><br />
       <%= f.text_field :presentation, :class => 'fullwidth' %>
       <%= f.error_message_on :presentation %>
     <% end %>
   </div>
+
   <%# TODO: ver por que esto sale bien pacotilloso en el edit pero no en el new %>
   <div class="six columns omega">
     <%= f.field_container :property_type do %>
@@ -24,4 +25,24 @@
     <% end %>
   </div>
 
+  <div class="alpha twelve columns">
+      <fieldset data-hook="edit_image">
+        <legend align="center"><%= @property.icon_file_name || Spree.t(:new_image) %></legend>
+        <div data-hook="thumbnail" class="field alpha three columns align-center">
+          <%= f.label Spree.t(:thumbnail) %><br>
+          <%= image_tag(@property.icon.url(:small)) %>
+        </div>
+
+        <div data-hook="admin_property_icon_form_fields">
+          <div class="four columns alpha">
+            <div data-hook="file" class="field">
+              <%= f.label Spree.t(:filename) %><br>
+              <%= f.file_field :icon %>
+            </div>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+      </fieldset>
+  </div>
 </div>

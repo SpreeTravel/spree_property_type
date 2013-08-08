@@ -1,3 +1,7 @@
 /*
  *= require store/spree_frontend
 */
+
+.product-section-title {
+    color: #ad4444;
+}
