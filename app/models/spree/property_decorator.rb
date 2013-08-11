@@ -14,7 +14,7 @@ module Spree
     end
 
     def property_type_show
-      property_type.show rescue Constant::PROPERTY_SHOW_LEFT_NORMAL
+      property_type.show rescue ConstantPropertyType::PROPERTY_SHOW_LEFT_NORMAL
     end
 
   end

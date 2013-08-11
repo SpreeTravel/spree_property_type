@@ -1,11 +1,11 @@
 <div data-hook="product_properties">
 
-  <% Constant.left_properties.each do |show_type| %>
+  <% ConstantPropertyType.left_properties.each do |show_type| %>
     <% unless @product_properties.hash_for(show_type).empty? %>
       <% for title in @product_properties.hash_for(show_type).keys %>
         <h6 class="product-section-title"><%= title %></h6>
 
-        <% if show_type == Constant::PROPERTY_SHOW_LEFT_NORMAL %>
+        <% if show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_NORMAL %>
 
           <table id="product-properties-<%=title.downcase.underscore %>" class="table-display" data-hook width="100%">
             <tbody>
@@ -19,7 +19,7 @@
             </tbody>
           </table>
 
-        <% elsif show_type == Constant::PROPERTY_SHOW_LEFT_NAME %>
+        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_NAME %>
 
           <table id="product-properties-<%=title.downcase.underscore %>" class="table-display" data-hook width="100%">
             <tbody>
@@ -32,7 +32,7 @@
             </tbody>
           </table>
 
-        <% elsif show_type == Constant::PROPERTY_SHOW_LEFT_BOTH %>
+        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_BOTH %>
 
           <table id="product-properties-<%=title.downcase.underscore %>" class="table-display" data-hook width="100%">
             <tbody>
@@ -46,7 +46,7 @@
             </tbody>
           </table>
 
-        <% elsif show_type == Constant::PROPERTY_SHOW_LEFT_ICON %>
+        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_ICON %>
 
           <ul class="thumbnails inline" data-hook>
             <% @product_properties.hash_for(show_type)[title].each do |product_property| %>

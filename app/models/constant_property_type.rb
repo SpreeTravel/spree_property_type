@@ -1,4 +1,5 @@
-Constant.class_eval do
+#TODO pensar donde poner la base de la clase Constant
+class ConstantPropertyType
   PROPERTY_SHOW_LEFT_NORMAL  = 'left_normal'
   PROPERTY_SHOW_LEFT_NAME    = 'left_name'
   PROPERTY_SHOW_LEFT_ICON    = 'left_icon'
