@@ -1,4 +1,4 @@
-CONFIG = :snc
+CONFIG = :pqr
 ###########################################################################
 case CONFIG
 when :pqr
@@ -9,7 +9,7 @@ when :snc
   SPREE_DEVISE_PATH = 'file:///media/Data/jaf/spree'
 when :raul
   GEMS_PATH = 'http://localhost/rubygems/'
-  SPREE_DEVISE_PATH = 'file:///home/raul/RubymineProjects/spree'    
+  SPREE_DEVISE_PATH = 'file:///home/raul/RubymineProjects/spree'
 else
   GEMS_PATH = 'http://rubygems.org'
   SPREE_DEVISE_PATH = 'https://github.com/radar'
