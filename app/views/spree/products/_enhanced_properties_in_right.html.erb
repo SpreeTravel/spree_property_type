@@ -5,27 +5,24 @@
       <% for title in @product_properties.hash_for(show_type).keys %>
         <h6 class="product-section-title"><%= title %></h6>
 
-        <% if show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_NORMAL %>
+        <% if show_type == ConstantPropertyType::PROPERTY_SHOW_DESC_NORMAL %>
 
           <dl id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
               <dt><%= product_property.property.presentation %></dt>
-              <%= product_property.value %></dd>
+              <dd><%= product_property.value %></dd>
             <% end %>
           </dl>
 
-        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_NAME %>
+        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_NORMAL %>
 
-          <table id="product-properties-<%=title.downcase.underscore %>" class="table-display" data-hook width="100%">
-            <tbody>
+          <ul id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
-              <% css_class = cycle('even', 'odd') %>
-              <tr class="<%= css_class %>">
-                <td><strong><%= product_property.property.presentation %></strong></td>
-              </tr>
+              <li class="<%= cycle('alpha four colums', 'four columns', 'omega four columns')%>">
+                <%= product_property.property.presentation %>
+              </li>
             <% end %>
-            </tbody>
-          </table>
+            </ul>
 
         <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_BOTH %>
 
