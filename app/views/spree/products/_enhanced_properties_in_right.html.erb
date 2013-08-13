@@ -24,7 +24,7 @@
             <% end %>
             </ul>
 
-        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_NORMAL %>
+        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_DESC_BOTH %>
 
           <ul id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
@@ -35,10 +35,10 @@
             <% end %>
           </ul>
 
-        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_ICON %>
+        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_DESC_ICON %>
 
-          <ul class="thumbnails inline" data-hook>
-            <% @product_properties.hash_for(show_type)[title].each do |product_property| %>
+          <ul class="thumbnails inline" id="product-properties-<%=title.downcase.underscore %>">
+            <% for product_property in @product_properties.hash_for(show_type)[title] %>
               <li class='tmb-all'>
                 <%= image_tag(product_property.property.icon(:mini)) %>
               </li>
