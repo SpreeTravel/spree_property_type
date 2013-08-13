@@ -18,7 +18,7 @@
 
           <ul id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
-              <li class="<%= cycle('alpha four colums', 'four columns', 'omega four columns')%>">
+              <li class="three columns">
                 <%= product_property.property.presentation %>
               </li>
             <% end %>
