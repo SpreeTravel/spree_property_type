@@ -14,7 +14,7 @@
             <% end %>
           </dl>
 
-        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_NORMAL %>
+        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_DESC_NAME %>
 
           <ul id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
@@ -24,19 +24,16 @@
             <% end %>
             </ul>
 
-        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_BOTH %>
+        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_NORMAL %>
 
-          <table id="product-properties-<%=title.downcase.underscore %>" class="table-display" data-hook width="100%">
-            <tbody>
+          <ul id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
-              <% css_class = cycle('even', 'odd') %>
-              <tr class="<%= css_class %>">
-                <td><%= image_tag product_property.property.icon(:mini) %></td>
-                <td class="derecha"><%= product_property.value %></td>
-              </tr>
+              <li class="three columns">
+                <%= image_tag product_property.property.icon(:mini) %>
+                <%= product_property.value %>
+              </li>
             <% end %>
-            </tbody>
-          </table>
+          </ul>
 
         <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_ICON %>
 
