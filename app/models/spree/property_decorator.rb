@@ -17,5 +17,9 @@ module Spree
       property_type.show rescue ConstantPropertyType::PROPERTY_SHOW_LEFT_NORMAL
     end
 
+    def property_type_presentation
+      property_type.presentation rescue 'Properties'
+    end
+
   end
 end

@@ -6,7 +6,14 @@
     <% end %>
   </div>
 
-  <div class="six columns omega">
+  <div class="four columns">
+    <%= f.field_container :presentation do %>
+      <%= f.label :presentation, Spree.t(:presentation) %>
+      <%= f.text_field :presentation, :class => 'fullwidth' %>
+    <% end %>
+  </div>
+
+  <div class="six four omega">
     <%= f.field_container :show do %>
       <%= f.label :show, Spree.t(:show) %><br>
       <%= f.select :show, Spree::PropertyType.show_where.map {|k,v| [v,k]},
