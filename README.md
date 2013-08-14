@@ -1,18 +1,18 @@
 Spree::PropertyType
 -------------------
-* adiciona un nuevo modelo
-* las properties ahora belongs_to :property_type
-* adiciona un nuevo concepto PropertyTypePosition que tiene los siquientes valores
-  - sidebar: Para mostrar en el sidebar
-  - bullets: para mostrarlo debajo de la descripcion en forma de bullets
-  - description: se muestra el name y el value
-* todos los property_type dicen donde se muestran
-* por defecto hay un property_type [General] que se muestra en el sidebar
-* adiciona a las properties un campo [show_in_list] para saber si esa property se muestra en el listado o no
-* el [show_in_list] puede tener los siguientes valores
-  - no: no se muestra en el list
-  - text: muestra el value
-  - image: muestra solo la imagen
-  - full: muestra value e imagen
-* adiciona el campo [show_in_details] igual que el [show_in_list]
-* adiciona a las properties una imagen
+Added a new model
+ the properties now belongs_to: property_type
+ Added a new concept PropertyTypePosition that has the next values
+	 sidebar: To display in the sidebar
+	 bullets: to display the description below in the form of bullets
+	 Description: Displays the name and value
+ all property_type say where they are shows
+ Default is a property_type [General] shown in the sidebar
+ properties added to a [show_in_list] to know if this property is displayed in the list or not
+ the [show_in_list] can have the following values
+	 no: not shown in the list
+	 text: show a value
+	 image: show only image 
+	 Full: Displays value and image
+ Added the [show_in_details] like the [show_in_list]
+ Added to an image properties
