@@ -2,7 +2,7 @@ module Spree
   class PropertyType < ActiveRecord::Base
 
     has_many :properties
-    attr_accessible :show, :name
+    attr_accessible :show, :name, :presentation
 
     def self.show_where(options = {})
       {
