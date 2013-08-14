@@ -6,7 +6,7 @@ module Spree
       hash = {}
       product_properties_for_this_part.each do |pp|
         property = pp.property
-        next if property.property_type_show != part.to_s
+        next unless property.property_type_show.include?(part.to_s)
         name = property.property_type_presentation
         hash[name] ||= []
         hash[name] << pp
