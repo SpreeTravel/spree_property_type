@@ -3,8 +3,6 @@
   <% ConstantPropertyType.left_properties.each do |show_type| %>
     <% unless @product_properties.hash_for(show_type).empty? %>
       <% for title in @product_properties.hash_for(show_type).keys %>
-        <% list = @product_properties.hash_for(show_type)[title] %>
-        <% next if list.empty? %>
 
         <h6 class="product-section-title"><%= title %></h6>
 
@@ -54,7 +52,7 @@
           <ul class="thumbnails inline" data-hook>
             <% @product_properties.hash_for(show_type)[title].each do |product_property| %>
               <li class='tmb-all'>
-                <%= image_tag(product_property.property.icon(:mini)) %>
+                <%= image_tag(product_property.property.icon(:mini), :border => 1) %>
               </li>
             <% end %>
           </ul>
