@@ -14,7 +14,7 @@ module Spree
     end
 
     def property_type_show
-      property_type.show
+      property_type.show rescue []
     end
 
     def property_type_presentation
