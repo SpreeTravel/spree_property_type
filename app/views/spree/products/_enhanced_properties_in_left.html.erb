@@ -3,6 +3,9 @@
   <% ConstantPropertyType.left_properties.each do |show_type| %>
     <% unless @product_properties.hash_for(show_type).empty? %>
       <% for title in @product_properties.hash_for(show_type).keys %>
+        <% list = @product_properties.hash_for(show_type)[title] %>
+        <% next if list.empty? %>
+
         <h6 class="product-section-title"><%= title %></h6>
 
         <% if show_type == ConstantPropertyType::PROPERTY_SHOW_LEFT_NORMAL %>
@@ -56,8 +59,7 @@
             <% end %>
           </ul>
 
-
-<% end %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
