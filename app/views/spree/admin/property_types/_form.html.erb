@@ -13,11 +13,11 @@
     <% end %>
   </div>
 
-  <div class="alpha six columns omega">
+  <div class="alpha twelve columns omega">
     <%= f.field_container :show do %>
       <%= f.label :show, Spree.t(:show) %><br>
       <% Spree::PropertyType.show_where.each do |k,v| %>
-        <div class="field">
+        <div class="<%= cycle("field five columns alpha", "field five columns omega")%>">
           <%= check_box_tag "pts_#{k}", 1, @property_type.show_parts.include?(k) %>
           <%= label_tag nil, v %> <br>
         </div>
