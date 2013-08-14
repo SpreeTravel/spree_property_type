@@ -21,8 +21,16 @@ module Spree
       }
     end
 
-    def show_type
-      Spree::PropertyType.show_where[self.show]
+    def show_parts
+      self.show.split('|')
+    end
+
+    def show_types
+      list = []
+      self.show_parts.each do |part|
+        list << Spree::PropertyType.show_where[part]
+      end
+      list
     end
   end
 end

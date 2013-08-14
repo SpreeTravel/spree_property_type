@@ -35,7 +35,7 @@
     <tr id="<%= spree_dom_id property_type %>" data-hook="tax_row" class="<%= cycle('odd', 'even')%>">
       <td><%= property_type.name %></td>
       <td><%= property_type.presentation %></td>
-      <td><%= property_type.show_type %></td>
+      <td><%= property_type.show_types %></td>
       <td class="actions">
         <%= link_to_edit property_type, :no_text => true %>
         <%= link_to_delete property_type, :no_text => true %>
