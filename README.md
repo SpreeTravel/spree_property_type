@@ -1,34 +1,24 @@
 Spree::PropertyType
 -------------------
 
-Added a new model
+Adds a new Model Spree::PropertyType. Spree::Property belongs to a property
+type. The property types has name, presentation an icon. Each property type
+can be shown in diferente places in the store:
 
- the properties now belongs_to: property_type
- 
- Added a new concept PropertyTypePosition that has the next values
- 
-	 sidebar: To display in the sidebar
-	 
-	 bullets: to display the description below in the form of bullets
-	 
-	 Description: Displays the name and value
-	 
- all property_type say where they are shows
- 
- Default is a property_type [General] shown in the sidebar
- 
- properties added to a [show_in_list] to know if this property is displayed in the list or not
- 
- the [show_in_list] can have the following values
- 
-	 no: not shown in the list
-	 
-	 text: show a value
-	 
-	 image: show only image 
-	 
-	 Full: Displays value and image
-	 
- Added the [show_in_details] like the [show_in_list]
- 
- Added to an image properties
+	 left side: show properties in the product description, under de images,
+              organized by types
+
+	 right side: Under de product description
+
+	 index: show properties in the product index
+
+each property can be shown in different ways:
+
+   name - value: this is the default way, the current way
+
+   name only: this only shows the name of the properties
+
+   icon - value: show the icon and the value
+
+   icon only: show only the icon
+
