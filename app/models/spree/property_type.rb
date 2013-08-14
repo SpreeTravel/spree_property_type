@@ -22,7 +22,7 @@ module Spree
     end
 
     def show_parts
-      self.show.split('|')
+      (self.show || '').split('|')
     end
 
     def show_types
