@@ -3,6 +3,4 @@ Spree::Core::Engine.routes.draw do
     resources :property_types
   end
 
-
-  # Add your extension routes here
 end
