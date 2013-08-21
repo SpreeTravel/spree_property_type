@@ -1,11 +1,11 @@
 <div data-hook="product_properties_below_description">
 
-  <% ConstantPropertyType.right_properties.each do |show_type| %>
+  <% Spree::PROPERTIES_RIGHT.each do |show_type| %>
     <% unless @product_properties.hash_for(show_type).empty? %>
       <% for title in @product_properties.hash_for(show_type).keys %>
         <h6 class="product-section-title"><%= title %></h6>
 
-        <% if show_type == ConstantPropertyType::PROPERTY_SHOW_DESC_NORMAL %>
+        <% if show_type == Spree::PROPERTY_SHOW_DESC_NORMAL %>
 
           <dl id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
@@ -14,7 +14,7 @@
             <% end %>
           </dl>
 
-        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_DESC_NAME %>
+        <% elsif show_type == Spree::PROPERTY_SHOW_DESC_NAME %>
 
           <ul id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
@@ -24,7 +24,7 @@
             <% end %>
             </ul>
 
-        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_DESC_BOTH %>
+        <% elsif show_type == Spree::PROPERTY_SHOW_DESC_BOTH %>
 
           <ul id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
@@ -35,7 +35,7 @@
             <% end %>
           </ul>
 
-        <% elsif show_type == ConstantPropertyType::PROPERTY_SHOW_DESC_ICON %>
+        <% elsif show_type == Spree::PROPERTY_SHOW_DESC_ICON %>
 
           <ul class="thumbnails inline" id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
