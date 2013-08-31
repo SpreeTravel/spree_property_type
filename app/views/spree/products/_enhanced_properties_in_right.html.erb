@@ -1,6 +1,6 @@
 <div data-hook="product_properties_below_description">
 
-  <% ConstantPropertyType.right_properties.each do |show_type| %>
+  <% ConstantPropertyType::PROPERTIES_RIGHT.each do |show_type| %>
     <% unless @product_properties.hash_for(show_type).empty? %>
       <% for title in @product_properties.hash_for(show_type).keys %>
         <h6 class="product-section-title"><%= title %></h6>
