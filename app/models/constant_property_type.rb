@@ -1,4 +1,4 @@
-module Spree
+module ConstantPropertyType
   PROPERTY_SHOW_LEFT_NORMAL  = 'left_normal'
   PROPERTY_SHOW_LEFT_NAME    = 'left_name'
   PROPERTY_SHOW_LEFT_ICON    = 'left_icon'
