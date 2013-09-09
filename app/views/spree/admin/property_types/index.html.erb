@@ -20,7 +20,7 @@
     <col style="width: 15%" />
   </colgroup>
   <thead>
-  <tr data-hook="tax_header">
+  <tr data-hook="property_type_header">
     <th><%= Spree.t(:name) %></th>
     <th><%= Spree.t(:presentation) %></th>
     <th><%= Spree.t(:show) %></th>
@@ -32,7 +32,7 @@
     @edit_url = edit_admin_property_type_path(property_type)
     @delete_url = admin_property_type_path(property_type)
   %>
-    <tr id="<%= spree_dom_id property_type %>" data-hook="tax_row" class="<%= cycle('odd', 'even')%>">
+    <tr id="<%= spree_dom_id property_type %>" data-hook="property_type_row" class="<%= cycle('odd', 'even')%>">
       <td><%= property_type.name %></td>
       <td><%= property_type.presentation %></td>
       <td><%= property_type.show_types.join('<br>').html_safe %></td>
@@ -42,7 +42,7 @@
     </tr>
   <% end %>
   <% if @property_types.empty? %>
-    <tr data-hook="tax_none"><td colspan="4"><%= Spree.t(:none) %></td></tr>
+    <tr data-hook="property_type_none"><td colspan="4"><%= Spree.t(:none) %></td></tr>
   <% end %>
   </tbody>
 </table>
