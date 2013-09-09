@@ -8,7 +8,7 @@
   <li><%= link_to_with_icon 'icon-arrow-left', Spree.t(:back_to_property_types_list), admin_property_types_path, :class => 'button' %></li>
 <% end %>
 
-<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @tax_category } %>
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @property_type } %>
 
 <%= form_for [:admin, @property_type] do |f| %>
   <fieldset class="no-border-top">
