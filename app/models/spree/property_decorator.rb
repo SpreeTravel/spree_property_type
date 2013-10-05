@@ -1,7 +1,6 @@
 module Spree
   Property.class_eval do
     belongs_to :property_type
-    attr_accessible :property_type_id, :icon
     has_attached_file :icon,
                       styles: { mini: '24x24#', small: '48x48#', normal: '128x128#' },
                       default_style: :mini,
