@@ -8,13 +8,13 @@ module Spree
     def self.hash_for(part)
       product_properties_for_this_part = self.joins(:property)
       hash = {}
-#      product_properties_for_this_part.each do |pp|
-#        property = pp.property
-#        next unless property.property_type_show.include?(part.to_s)
-#        name = property.property_type_presentation
-#        hash[name] ||= []
-#        hash[name] << pp
-#      end
+      product_properties_for_this_part.each do |pp|
+        property = pp.property
+        next unless property.property_type_show.include?(part.to_s)
+        name = property.property_type_presentation
+        hash[name] ||= []
+        hash[name] << pp
+      end
       hash
     end
 
