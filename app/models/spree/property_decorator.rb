@@ -7,6 +7,7 @@ module Spree
                       url: '/spree/taxons/:id/:style/:basename.:extension',
                       path: ':rails_root/public/spree/taxons/:id/:style/:basename.:extension',
                       default_url: '/assets/default_property.png'
+    validates_attachment_content_type :icon, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
     def property_type_name
       property_type.name rescue 'Properties'
