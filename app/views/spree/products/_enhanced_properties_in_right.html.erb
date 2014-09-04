@@ -30,7 +30,7 @@
                 css << 'omega' if index % columns == 0 || index == count
             %>
               <li class="<%= css.join(' ') %>">
-                &#xf00c; <%= product_property.property.presentation %>
+                <i class="fa fa-check"></i> <%= product_property.property.presentation %>
               </li>
             <% end %>
           </ul>
