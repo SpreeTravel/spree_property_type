@@ -13,7 +13,7 @@
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
               <% css_class = cycle('even', 'odd') %>
               <tr class="<%= css_class %>">
-                <td><strong><%= product_property.property.presentation %></strong></td>
+                <td><%= product_property.property.presentation %></td>
                 <td class="derecha"><%= product_property.value %></td>
               </tr>
             <% end %>
