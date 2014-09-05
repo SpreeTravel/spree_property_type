@@ -25,7 +25,7 @@
               columns = 2
               for product_property in @product_properties.hash_for(show_type)[title]
                 index += 1
-                css = ['three', 'columns']
+                css = ['five', 'columns']
                 css << 'alpha' if index % columns == 1
                 css << 'omega' if index % columns == 0 || index == count
             %>
