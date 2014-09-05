@@ -22,7 +22,7 @@
             <%
               count = @product_properties.hash_for(show_type)[title].count
               index = 0
-              columns = 3
+              columns = 2
               for product_property in @product_properties.hash_for(show_type)[title]
                 index += 1
                 css = ['three', 'columns']
