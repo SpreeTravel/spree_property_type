@@ -18,14 +18,14 @@
 
         <% elsif show_type == Spree::PROPERTY_SHOW_DESC_NAME %>
 
-          <ul id="product-properties-<%=title.downcase.underscore %>">
+          <ul id="product-properties-<%=title.to_url %>">
             <%
               count = @product_properties.hash_for(show_type)[title].count
               index = 0
-              columns = 2
+              columns = 3
               for product_property in @product_properties.hash_for(show_type)[title]
                 index += 1
-                css = ['five', 'columns']
+                css = ['three', 'columns']
                 css << 'alpha' if index % columns == 1
                 css << 'omega' if index % columns == 0 || index == count
             %>
