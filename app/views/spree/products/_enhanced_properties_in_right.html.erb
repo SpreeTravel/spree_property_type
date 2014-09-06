@@ -3,10 +3,9 @@
   <% Spree::PROPERTIES_RIGHT.each do |show_type| %>
     <% unless @product_properties.hash_for(show_type).empty? %>
       <% for title in @product_properties.hash_for(show_type).keys %>
-        <h6 class="product-section-title"><%= title %></h6>
 
         <% if show_type == Spree::PROPERTY_SHOW_DESC_NORMAL %>
-
+          <h6 class="product-section-title"><%= title %></h6>
           <dl id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
               <dt><%= product_property.property.presentation %></dt>
@@ -14,11 +13,12 @@
             <% end %>
           </dl>
 
-          <br>
-
         <% elsif show_type == Spree::PROPERTY_SHOW_DESC_NAME %>
 
-          <ul id="product-properties-<%=title.to_url %>">
+        <!-- this one here is ok -->
+        <div class="property-group">
+          <h6 class="product-section-title"><%= title %></h6>
+          <ul id="product-properties-<%=title.to_url %>" class="inline">
             <%
               count = @product_properties.hash_for(show_type)[title].count
               index = 0
@@ -34,11 +34,11 @@
               </li>
             <% end %>
           </ul>
-
-          <br>
+        </div>
 
         <% elsif show_type == Spree::PROPERTY_SHOW_DESC_BOTH %>
 
+          <h6 class="product-section-title"><%= title %></h6>
           <ul id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
               <li class="three columns">
@@ -48,10 +48,9 @@
             <% end %>
           </ul>
 
-          <br>
-
         <% elsif show_type == Spree::PROPERTY_SHOW_DESC_ICON %>
 
+          <h6 class="product-section-title"><%= title %></h6>
           <ul class="thumbnails inline" id="product-properties-<%=title.downcase.underscore %>">
             <% for product_property in @product_properties.hash_for(show_type)[title] %>
               <li class='tmb-all'>
@@ -59,8 +58,6 @@
               </li>
             <% end %>
           </ul>
-
-          <br>
 
         <% end %>
       <% end %>
