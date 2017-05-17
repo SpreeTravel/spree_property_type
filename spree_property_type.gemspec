@@ -7,7 +7,7 @@ versions = yaml['gems']
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_property_type'
-  s.version     = versions['spree_travel']
+  s.version     = versions['spree']
   s.summary     = 'Types/Categories for properties'
   s.description = 'You can categorize and organize your properties, each type of properties can be located in diferent places in the website'
   s.required_ruby_version = '>= 1.9.3'
