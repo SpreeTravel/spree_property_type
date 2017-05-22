@@ -1,48 +1,39 @@
-<%#= render :partial => 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
-  <%= Spree.t(:listing_property_types) %>
+    <%= plural_resource_name(Spree::PropertyType) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <ul class="actions inline-menu">
-    <li>
-      <%= button_link_to Spree.t(:new_property_type), new_object_url, :icon => 'icon-plus', :id => 'admin_new_property_type_link' %>
-    </li>
-  </ul>
+    <%= button_link_to Spree.t(:new_property_type), new_object_url, { class: "btn-success", icon: 'add', 'data-update' => 'new_property_type', id: 'new_property__type_link' } %>
 <% end %>
 
-<table class="index" id='listing_property-types' data-hook>
-  <colgroup>
-    <col style="width: 25%" />
-    <col style="width: 25%" />
-    <col style="width: 35%" />
-    <col style="width: 15%" />
-  </colgroup>
-  <thead>
-  <tr data-hook="property_type_header">
-    <th><%= Spree.t(:name) %></th>
-    <th><%= Spree.t(:presentation) %></th>
-    <th><%= Spree.t(:show) %></th>
-    <th class="actions"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @property_types.each do |property_type|
-    @edit_url = edit_admin_property_type_path(property_type)
-    @delete_url = admin_property_type_path(property_type)
-  %>
-    <tr id="<%= spree_dom_id property_type %>" data-hook="property_type_row" class="<%= cycle('odd', 'even')%>">
-      <td><%= property_type.name %></td>
-      <td><%= property_type.presentation %></td>
-      <td><%= property_type.show_types.join('<br>').html_safe %></td>
-      <td class="actions">
-        <%= link_to_edit property_type, :no_text => true %>
-        <%= link_to_delete property_type, :no_text => true %>
-    </tr>
-  <% end %>
-  <% if @property_types.empty? %>
-    <tr data-hook="property_type_none"><td colspan="4"><%= Spree.t(:none) %></td></tr>
-  <% end %>
-  </tbody>
-</table>
+
+<% if @property_types.any? %>
+    <table class="table" id='listing_properties' data-hook>
+      <thead>
+      <tr data-hook="listing_properties_header">
+        <th><%= Spree.t(:name) %></th>
+        <th><%= Spree.t(:presentation) %></th>
+        <th><%= Spree.t(:show) %></th>
+        <th class="actions"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @property_types.each do |property_type| %>
+          <tr id="<%= spree_dom_id property_type %>" data-hook="listing_properties_row">
+            <td><%= property_type.name %></td>
+            <td><%= property_type.presentation %></td>
+            <td><%= property_type.show_types.join('<br>').html_safe %></td>
+            <td class="actions actions-2 text-right">
+              <%= link_to_edit(property_type, no_text: true) %>
+              <%= link_to_delete(property_type, no_text: true) %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <div class="alert alert-info no-objects-found">
+      <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::PropertyType)) %>,
+      <%= link_to Spree.t(:add_one), new_object_url %>!
+    </div>
+<% end %>
